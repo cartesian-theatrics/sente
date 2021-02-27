@@ -1,0 +1,38 @@
+{:deps {org.clojure/core.async            {:mvn/version "1.3.610"}
+        com.taoensso/encore               {:mvn/version "3.1.0"}
+        org.java-websocket/Java-WebSocket {:mvn/version "1.5.1"}
+        org.clojure/tools.reader          {:mvn/version "1.3.3"}
+        com.taoensso/timbre               {:mvn/version "4.10.0"}}
+ :mvn/repos
+ {"sonatype-oss-public"
+  {:url "https://oss.sonatype.org/content/groups/public/"}}
+
+ :aliases
+ {:test
+  {:extra-paths ["test" "test" "src"]
+   :extra-deps  {com.cognitect/transit-cljs     {:mvn/version "0.8.264"}
+                 http-kit/http-kit              {:mvn/version "2.5.0"}
+                 org.immutant/web               {:mvn/version "2.1.10"}
+                 com.cognitect/transit-clj      {:mvn/version "1.0.324"}
+                 macchiato/core                 {:mvn/version "0.2.20"}
+                 nginx-clojure/nginx-clojure    {:mvn/version "0.5.1"}
+                 info.sunng/ring-jetty9-adapter {:mvn/version "0.14.0"}
+                 org.clojure/test.check         {:mvn/version "1.1.0"}
+                 luminus/ring-undertow-adapter  {:mvn/version "1.1.2"}
+                 aleph/aleph                    {:mvn/version "0.4.6"}}}
+  :runner
+  {:extra-deps {com.cognitect/test-runner
+                {:git/url "https://github.com/cognitect-labs/test-runner"
+                 :sha     "76568540e7f40268ad2b646110f237a60295fa3c"}}
+   :main-opts  ["-m" "cognitect.test-runner" "-d" "test"]}
+
+  :server-jvm
+  {:jvm-opts ["-server"]}
+
+  :provided
+  {:extra-deps {org.clojure/clojure       {:mvn/version "1.10.1"}
+                org.clojure/clojurescript {:mvn/version "1.10.773"}}}
+
+  :1.8  {:extra-deps {org.clojure/clojure {:mvn/version "1.8.0"}}}
+  :1.9  {:extra-deps {org.clojure/clojure {:mvn/version "1.9.0"}}}
+  :1.10 {:extra-deps {org.clojure/clojure {:mvn/version "1.10.1"}}}}}
